@@ -1,8 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 
 import App from './components/App';
+import Home from './components/Home';
 
 const root = document.querySelector('.root');
 
-ReactDOM.render(<App />, root);
+render((
+  <Router history={hashHistory}>
+    <Route path='/' component={App}>
+      <IndexRoute component={Home} />
+    </Route>
+  </Router>
+), root);
